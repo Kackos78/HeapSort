@@ -3,7 +3,13 @@
 from random import randint
 from time import time
 
-def list_gen(mi=-5, ma=5, le=10):
+
+def algo_time(func, x):
+    start = time()
+    func(x)
+    finish = time() - start
+    print(f"Выполение за {finish} сек.")
+def list_gen(mi=-100, ma=100, le=100):
     return [randint(mi, ma) for i in range(le)]
 
 def HeapSort(list, heapSize, rootIndex):
@@ -25,7 +31,6 @@ def HeapSort(list, heapSize, rootIndex):
         HeapSort(list, heapSize, largest)
     return list
 
-
 def HeapPreSort(list):
     i = len(list) / 2 - 1
     while i >= 0:
@@ -42,8 +47,12 @@ def HeapPreSort(list):
 
 
 
+start = time()
 
 my_list = list_gen()
-print(my_list)
+# print(my_list)
 my_list_sorted = HeapPreSort(my_list)
-print(my_list_sorted)
+# print(my_list_sorted)
+
+finish = time() - start
+print(f"Выполение за {finish} сек.")
